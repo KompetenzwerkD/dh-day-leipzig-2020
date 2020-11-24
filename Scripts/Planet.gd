@@ -20,6 +20,7 @@ export var material: SpatialMaterial
 export (Array, NodePath) var conditions = []
 var condition_count = 0
 
+export var rotation_on: bool = true
 export var rotate_axis: String = "y"
 export var mesh_scale: float = 1.0
 
@@ -37,16 +38,18 @@ func _ready():
 		
 	if conditions.size() > 0:
 		visible = false
+		$Area/CollisionShape.disabled = true
 		for nodepath in conditions:
 			var node: Interactible = get_node(nodepath)
 			node.connect("was_scanned", self, "_on_condition_was_scanned")
 
 
 func _process(delta: float) -> void:
-	if rotate_axis == "z":
-		$Sphere.rotate_z(delta * 0.3)
-	else:
-		$Sphere.rotate_y(delta * 0.3)
+	if rotation_on:
+		if rotate_axis == "z":
+			$Sphere.rotate_z(delta * 0.3)
+		else:
+			$Sphere.rotate_y(delta * 0.3)
 
 
 func _on_Area_body_entered(body) -> void:
@@ -57,7 +60,7 @@ func _on_Area_body_exited(body):
 	emit_signal("hide_scan_ui")
 	
 func scan() -> void:
-	if !scanned:
+	if !scanned and in_network:
 		scanned = true
 		emit_signal("was_scanned")
 
@@ -66,3 +69,4 @@ func _on_condition_was_scanned() -> void:
 	condition_count += 1
 	if condition_count == conditions.size():
 		visible = true
+		$Area/CollisionShape.disabled = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water_diffuse.png-98a389e2e477fa4c65aceff4ec6c04c5.stex"
+path="res://.import/kowed-logo.png-d5c17dd9097cd88efd4fb94aae2df677.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/water_diffuse.png"
-dest_files=[ "res://.import/water_diffuse.png-98a389e2e477fa4c65aceff4ec6c04c5.stex" ]
+source_file="res://Assets/Textures/kowed-logo.png"
+dest_files=[ "res://.import/kowed-logo.png-d5c17dd9097cd88efd4fb94aae2df677.stex" ]
 
 [params]
 
