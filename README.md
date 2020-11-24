@@ -23,4 +23,4 @@ Saxon Academy of Sciences and Humanities, 2020
 
 * Code: [MIT](https://opensource.org/licenses/MIT)
 * Assets: [CC-BY-0](https://creativecommons.org/publicdomain/zero/1.0/deed.de)
-*["Milkeyway_BG.png" HDRI Map by "Blochi/sIBL Archive"](http://www.hdrlabs.com/sibl/archive.html): [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/3.0/us/)
+* ["Milkeyway_BG.png" HDRI Map by "Blochi/sIBL Archive"](http://www.hdrlabs.com/sibl/archive.html): [CC-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/3.0/us/)
