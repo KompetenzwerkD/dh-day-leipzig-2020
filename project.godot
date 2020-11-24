@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Spatial",
+"class": "Connection",
+"language": "GDScript",
+"path": "res://Scripts/Connection.gd"
+}, {
+"base": "StaticBody",
+"class": "Interactible",
+"language": "GDScript",
+"path": "res://Scripts/Planet.gd"
+}, {
+"base": "KinematicBody",
+"class": "Ship",
+"language": "GDScript",
+"path": "res://Scripts/Spaceship.gd"
+} ]
+_global_script_class_icons={
+"Connection": "",
+"Interactible": "",
+"Ship": ""
+}
+
+[application]
+
+config/name="dh-day-2020"
+run/main_scene="res://World.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=640
+window/size/height=1080
+window/stretch/mode="viewport"
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/filters/msaa=3
+environment/default_environment="res://default_env.tres"
+quality/subsurface_scattering/quality=0

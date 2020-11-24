@@ -1,0 +1,1203 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Assets/Textures/Milkyway_BG.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Fonts/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Objects/Planet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Spaceship.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/InputField.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=7]
+[ext_resource path="res://UI/HeaderText.tres" type="DynamicFont" id=8]
+[ext_resource path="res://UI/StdText.tres" type="DynamicFont" id=9]
+[ext_resource path="res://UI/Button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/PlanetUI.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Textures/saw-logo.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/spaceship.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Textures/isgv.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/di.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Textures/si.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Textures/gwzo.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Textures/hait.png" type="Texture" id=18]
+[ext_resource path="res://Scripts/Content.gd" type="Script" id=19]
+[ext_resource path="res://UI/URLButton.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/Network.gd" type="Script" id=21]
+[ext_resource path="res://UI/UrlButtonText.tres" type="DynamicFont" id=22]
+[ext_resource path="res://Scripts/Progress.gd" type="Script" id=23]
+[ext_resource path="res://Meshes/Satellite.tres" type="ArrayMesh" id=24]
+[ext_resource path="res://Materials/Standard.tres" type="Material" id=25]
+[ext_resource path="res://Assets/Textures/multitrafo.png" type="Texture" id=26]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 0.52549, 0.792157, 0.882353, 1 )
+fog_color = Color( 0.866667, 0.862745, 0.858824, 1 )
+fog_depth_end = 20.0
+fog_depth_curve = 0.732043
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 100, 0.1, 100 )
+
+[node name="World" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.275939, -0.516057, 0.81089, 0, 0.843644, 0.536903, -0.961175, 0.148153, -0.232795, 0.714926, 12.7868, 1.2436 )
+light_energy = 0.67
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Control" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/Title"]
+margin_top = 40.0
+margin_right = 640.0
+margin_bottom = 288.0
+color = Color( 0.0784314, 0.262745, 0.196078, 0.87451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Title"]
+margin_left = 64.0
+margin_top = 40.0
+margin_right = 440.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 3 )
+text = "Kompetenzwerk"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubtitleLabel" type="Label" parent="UI/Title"]
+margin_left = 64.0
+margin_top = 144.0
+margin_right = 599.0
+margin_bottom = 297.0
+custom_fonts/font = ExtResource( 8 )
+text = "Sächsisches Forschungszentrum und Kompetenznetzwerk für Digitale Geisteswissenschaften und Kulturelles Erbe"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DLabel" type="Label" parent="UI/Title"]
+margin_left = 440.0
+margin_top = 40.0
+margin_right = 816.0
+margin_bottom = 235.0
+custom_fonts/font = SubResource( 3 )
+text = "D
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="Control" parent="UI"]
+margin_top = 336.0
+margin_right = 640.0
+margin_bottom = 616.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/About"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.156863, 0.156863, 0.156863, 0.898039 )
+
+[node name="SubtitleLabel2" type="Label" parent="UI/About/ColorRect"]
+anchor_bottom = 0.25
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 591.0
+margin_bottom = 212.0
+custom_fonts/font = ExtResource( 9 )
+text = "Interactives Poster: Entdecke die außeruniversitären geisteswissenschaftlichen Forschungseinrichtungen in Sachsen und deren Bestrebungen im Digital Humanities Bereich.
+
+Steuerung: Klicke um das Raumschiff in Richtung des Mousepointers to navigieren."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Control" parent="UI"]
+margin_left = 176.0
+margin_top = 960.0
+margin_right = 464.0
+margin_bottom = 1024.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="UI/Start" instance=ExtResource( 10 )]
+margin_top = -32.0
+margin_bottom = -32.0
+
+[node name="Scan" type="Control" parent="UI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="UI/Scan"]
+margin_left = 288.0
+margin_top = 280.0
+margin_right = 328.0
+margin_bottom = 320.0
+texture = ExtResource( 13 )
+
+[node name="ScanButton" parent="UI/Scan" instance=ExtResource( 10 )]
+margin_left = 208.0
+margin_top = 920.0
+margin_right = 392.0
+margin_bottom = 944.0
+text = "Scan"
+
+[node name="Content" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 24.0
+margin_bottom = -128.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GWZO" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/GWZO"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/GWZO/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Leibniz-Institut für Geschichte und Kultur des östlichen Europa (GWZO)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/GWZO/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 192.0
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/GWZO/ColorRect"]
+margin_left = 56.0
+margin_top = 344.0
+margin_right = 576.0
+margin_bottom = 423.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ DH-Aktivitäten, Ressourcen u.a. ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescLabel" type="Label" parent="UI/Content/GWZO/ColorRect"]
+margin_left = 232.0
+margin_top = 152.0
+margin_right = 584.0
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 9 )
+text = "Das Leibniz-Institut für Geschichte und Kultur des östlichen Europa (GWZO) hat die Region zwischen Ostsee, Schwarzem Meer und Adria im Forschungsfokus."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/GWZO/ColorRect"]
+margin_left = 56.0
+margin_top = 400.0
+margin_right = 576.0
+margin_bottom = 803.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDat" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "EpiMedDat"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/GWZO/ColorRect/VBoxContainer"]
+margin_top = 63.0
+margin_right = 520.0
+margin_bottom = 159.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails"]
+margin_right = 520.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 9 )
+text = "Open Data collection für histolrische Epidemien und mittelalterliche Krankheiten"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc2" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails"]
+margin_top = 70.0
+margin_right = 520.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 9 )
+text = "Geplante Umsetzung mit Semantic Mediawiki"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OstData" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer"]
+margin_top = 184.0
+margin_right = 520.0
+margin_bottom = 222.0
+custom_fonts/font = ExtResource( 8 )
+text = "OstData"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/GWZO/ColorRect/VBoxContainer"]
+margin_top = 247.0
+margin_right = 520.0
+margin_bottom = 401.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_right = 520.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+text = "Zentraler Dienst für Forschungsdatenmanagement in der deutschen Ost-, Ostmittel- und Südosteuropaforschung"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_top = 99.0
+margin_right = 520.0
+margin_bottom = 154.0
+custom_fonts/font = ExtResource( 9 )
+text = "GWZO zuständig für Qualitätsmanagement bei Forschungsdaten"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DI" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/DI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/DI/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Leibniz-Institut für jüdische Geschichte und Kultur – Simon Dubnow (DI)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/DI/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 120, 40 )
+url = "https://www.dubnow.de/"
+
+[node name="DescLabel" type="Label" parent="UI/Content/DI/ColorRect"]
+margin_left = 232.0
+margin_top = 152.0
+margin_right = 584.0
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 9 )
+text = "Das DI ist ein interdisziplinär ausgerichtetes Institut zur Erforschung jüdischer Lebenswelten in Mittel- und Osteuropa vom Mittelalter bis in die Gegenwart."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/DI/ColorRect"]
+margin_left = 56.0
+margin_top = 368.0
+margin_right = 576.0
+margin_bottom = 447.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ DH-Aktivitäten, Ressourcen u.a. ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/DI/ColorRect"]
+margin_left = 56.0
+margin_top = 424.0
+margin_right = 576.0
+margin_bottom = 827.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle" type="Label" parent="UI/Content/DI/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "Blog \"Mimeo\""
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/DI/ColorRect/VBoxContainer"]
+margin_top = 63.0
+margin_right = 520.0
+margin_bottom = 89.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/DI/ColorRect/VBoxContainer/ProjectDetails"]
+margin_right = 520.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 9 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HAIT" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/HAIT"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/HAIT/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Hannah-Arendt-Instituts für Totalitarismusforschung (HAIT)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/HAIT/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 120, 40 )
+url = "https://hait.tu-dresden.de/ext/"
+
+[node name="DescLabel" type="Label" parent="UI/Content/HAIT/ColorRect"]
+margin_left = 232.0
+margin_top = 152.0
+margin_right = 584.0
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 9 )
+text = "Das HAIT beschäftigt sich mit der systematischen Untersuchung des Nationalsozialismus und des Kommunismus sowie den Voraussetzungen und Folgen beider Herrschaftssysteme."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/HAIT/ColorRect"]
+margin_left = 56.0
+margin_top = 368.0
+margin_right = 576.0
+margin_bottom = 447.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ DH-Aktivitäten, Ressourcen u.a. ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/HAIT/ColorRect"]
+margin_left = 56.0
+margin_top = 424.0
+margin_right = 576.0
+margin_bottom = 827.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "\"Corona-Projekt\""
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/HAIT/ColorRect/VBoxContainer"]
+margin_top = 63.0
+margin_right = 520.0
+margin_bottom = 147.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer/ProjectDetails"]
+margin_right = 520.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+text = "Vom Virus zu viralen Verschwörungstheorien: Die \"Spanische Grippe\" und die COVID-19-Pandemie in interdisziplinärer und internationaler Perspektive"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle2" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer"]
+margin_top = 172.0
+margin_right = 520.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 8 )
+text = "\"Der Freiheitskampf\""
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/HAIT/ColorRect/VBoxContainer"]
+margin_top = 235.0
+margin_right = 520.0
+margin_bottom = 360.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_right = 520.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 9 )
+text = "Digitalisierung der Dresdner Tageszeitung der NSDAP für den Gau Sachsen (1930–1945)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_top = 70.0
+margin_right = 520.0
+margin_bottom = 125.0
+custom_fonts/font = ExtResource( 9 )
+text = "Freigeschaltet sind die Jahrgänge 1930–1937
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SI" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/SI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/SI/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Sorbische Institut / Serbski institut (SI)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/SI/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 120, 40 )
+url = "https://www.serbski-institut.de"
+
+[node name="DescLabel" type="Label" parent="UI/Content/SI/ColorRect"]
+margin_left = 232.0
+margin_top = 152.0
+margin_right = 584.0
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 9 )
+text = "Das SI erforscht die Sprache, Geschichte und Kultur der Sorben (Wenden) in der Ober- und der Niederlausitz in Vergangenheit und Gegenwart."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/SI/ColorRect"]
+margin_left = 56.0
+margin_top = 368.0
+margin_right = 576.0
+margin_bottom = 447.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ DH-Aktivitäten, Ressourcen u.a. ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/SI/ColorRect"]
+margin_left = 56.0
+margin_top = 424.0
+margin_right = 576.0
+margin_bottom = 827.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "\"Sorabicon\""
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/SI/ColorRect/VBoxContainer"]
+margin_top = 63.0
+margin_right = 520.0
+margin_bottom = 147.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer/ProjectDetails"]
+margin_right = 520.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+text = "Präsentiert wissenschaftlich fundiertes Wissen über die sorbische Sprache, Geschichte und Kultur, u.a. Sorbische Bibliographie"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle2" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer"]
+margin_top = 172.0
+margin_right = 520.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 8 )
+text = "\"Sprachressourcen\""
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/SI/ColorRect/VBoxContainer"]
+margin_top = 235.0
+margin_right = 520.0
+margin_bottom = 331.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_right = 520.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 9 )
+text = "Digitale Wörterbücher für Niedersorbisch, Obersorbisch"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_top = 70.0
+margin_right = 520.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 9 )
+text = "Obersorbisches Textkorpus"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SAW" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/SAW"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Sächsische Akademie der Wissenschaften zu Leipzig (SAW)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/SAW/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 120, 40 )
+url = "https://www.saw-leipzig.de"
+
+[node name="DescLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
+margin_left = 232.0
+margin_top = 152.0
+margin_right = 584.0
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 9 )
+text = "Die SAW betreibt zur Zeit über 20 Forschungsvorhaben im geisteswissenschaftlichen Bereich."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
+margin_left = 56.0
+margin_top = 368.0
+margin_right = 576.0
+margin_bottom = 447.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ DH-Aktivitäten, Ressourcen u.a. ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/SAW/ColorRect"]
+margin_left = 56.0
+margin_top = 424.0
+margin_right = 576.0
+margin_bottom = 827.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "Virtuelles Archiv"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
+margin_top = 63.0
+margin_right = 520.0
+margin_bottom = 147.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer/ProjectDetails"]
+margin_right = 520.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+text = "Erschließung und digitaler Zusammenführung akademierelevanter Quellen- und Wissensbestände anderer Archive und Forschungseinrichtungen"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle2" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
+margin_top = 172.0
+margin_right = 520.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 8 )
+text = "(Digitale) Wörterbuchprojekte"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
+margin_top = 235.0
+margin_right = 520.0
+margin_bottom = 261.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_right = 520.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 9 )
+text = "Althochdeutsches Wörterbuch"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle3" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
+margin_top = 286.0
+margin_right = 520.0
+margin_bottom = 324.0
+custom_fonts/font = ExtResource( 8 )
+text = "ba[sic?] Tool"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails3" type="VBoxContainer" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
+margin_top = 349.0
+margin_right = 520.0
+margin_bottom = 404.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer/ProjectDetails3"]
+margin_right = 520.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 9 )
+text = "Tool for searching, identifiing and connecting named entities with authority data"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ISGV" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/ISGV"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Institut für Sächsische Geschichte und Volkskunde (ISGV)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
+margin_left = 56.0
+margin_top = 344.0
+margin_right = 576.0
+margin_bottom = 423.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ DH-Aktivitäten, Ressourcen u.a. ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/ISGV/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 152.0
+margin_right = 184.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 120, 40 )
+url = "https://www.isgv.de/"
+
+[node name="DescLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
+margin_left = 232.0
+margin_top = 152.0
+margin_right = 584.0
+margin_bottom = 294.0
+custom_fonts/font = ExtResource( 9 )
+text = "Das ISGV hat den Auftrag, die sächsische Geschichte  in ihren historischen Räumen sowie ihren und die alltäglichen Lebenswelten  zu erforschen."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect"]
+margin_left = 56.0
+margin_top = 400.0
+margin_right = 576.0
+margin_bottom = 803.0
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDat" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "Sächsische Biographie"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
+margin_top = 63.0
+margin_right = 520.0
+margin_bottom = 147.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer/ProjectDetails"]
+margin_right = 520.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+text = "Bietet Informationen zu über 10.000 bedeutenden Personen vom Mittelalter bis zum heutigen Freistaat Sachsen."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OstData" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
+margin_top = 172.0
+margin_right = 520.0
+margin_bottom = 210.0
+custom_fonts/font = ExtResource( 8 )
+text = "Digitales Bildarchiv"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
+margin_top = 235.0
+margin_right = 520.0
+margin_bottom = 348.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer/ProjectDetails2"]
+margin_right = 520.0
+margin_bottom = 113.0
+custom_fonts/font = ExtResource( 9 )
+text = "Bestand an Fotografien, Zeichnungen, Drucken etc. zu Sachsen, der laufend ausgebaut, digital erschlossen und der Öffentlichkeit im Internet zugänglich gemacht wird"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1989" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/1989"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/1989/ColorRect"]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = 584.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 8 )
+text = "Multiple Transformationen. Gesellschaftliche Erfahrung und kultureller Wandel in Ostdeutschland und Ostmitteleuropa vor und nach 1989"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/1989/ColorRect" instance=ExtResource( 20 )]
+margin_left = 64.0
+margin_top = 232.0
+margin_right = 184.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 120, 40 )
+url = "https://multitrafo.hypotheses.org/"
+
+[node name="DescLabel" type="Label" parent="UI/Content/1989/ColorRect"]
+margin_left = 56.0
+margin_top = 312.0
+margin_right = 592.0
+margin_bottom = 483.0
+custom_fonts/font = ExtResource( 9 )
+text = "Dieses Verbundprojekt des GWZO, ISGV, HAIT und Sorbischen Institut widmet sich dem Umbruch von 1989 sowie den Folgeerscheinungen des Transformationsprozesses in Deutschland und seinen ostmitteleuropäischen Nachbarländern in transdisziplinärer Perspektive."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/1989/ColorRect"]
+margin_left = 56.0
+margin_top = 547.0
+margin_right = 576.0
+margin_bottom = 626.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "[ KomptenzwerkD ]
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/1989/ColorRect"]
+margin_left = 56.0
+margin_top = 610.0
+margin_right = 576.0
+margin_bottom = 867.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc" type="Label" parent="UI/Content/1989/ColorRect/VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 9 )
+text = "Gemeinsames Forschungsdatenmanagement"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc2" type="Label" parent="UI/Content/1989/ColorRect/VBoxContainer"]
+margin_top = 46.0
+margin_right = 520.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 9 )
+text = "Zentrale Ressourcenerfassung und Forschungsdatenbank (Semantic Mediawiki?)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseContentButton" parent="UI/Content" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_top = 896.0
+margin_right = 448.0
+margin_bottom = 960.0
+text = "Schließen"
+
+[node name="Progress" type="Control" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+script = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/Progress"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -8.0
+color = Color( 0.0862745, 0.0862745, 0.0862745, 0.92549 )
+
+[node name="InstituteCountLabel" type="Label" parent="UI/Progress/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -272.0
+margin_top = -8.0
+margin_right = -172.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 22 )
+custom_colors/font_color = Color( 0.870588, 0.933333, 0.305882, 1 )
+text = "0/6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstituteLabel2" type="Label" parent="UI/Progress/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -232.0
+margin_top = -8.0
+margin_right = -132.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 22 )
+text = "Institute entdeckt"
+
+[node name="Ship" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.819402, 0.573219, 0, -0.573219, 0.819402, 0, 9.86349, 9.49971 )
+script = ExtResource( 6 )
+
+[node name="InputField" type="Area" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="InputField"]
+shape = SubResource( 4 )
+
+[node name="Targets" type="Spatial" parent="."]
+
+[node name="SAW" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, 18.4603, 0, -28.4202 )
+logo = ExtResource( 12 )
+content_node = NodePath("../../UI/Content/SAW")
+
+[node name="ISGV" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -34.6088, 0, -0.0854585 )
+logo = ExtResource( 14 )
+content_node = NodePath("../../UI/Content/ISGV")
+
+[node name="DI" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.933361, -0.199792, 0.298193, -0.00703091, 0.820431, 0.571702, -0.358869, -0.535701, 0.764354, 20.422, 0, 26.684 )
+logo = ExtResource( 15 )
+content_node = NodePath("../../UI/Content/DI")
+
+[node name="HAIT" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -10.0783, 0, 35.2199 )
+logo = ExtResource( 18 )
+content_node = NodePath("../../UI/Content/HAIT")
+
+[node name="SI" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, 26.474, 0, -0.0913181 )
+logo = ExtResource( 16 )
+content_node = NodePath("../../UI/Content/SI")
+
+[node name="GWZO" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -10.0866, 0, -29.1884 )
+logo = ExtResource( 17 )
+content_node = NodePath("../../UI/Content/GWZO")
+
+[node name="1989" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.944451, 0.328652, 0, -0.328652, 0.944451, -9.95065, 0, 0 )
+logo = ExtResource( 26 )
+content_node = NodePath("../../UI/Content/1989")
+in_network = false
+mesh = ExtResource( 24 )
+material = ExtResource( 25 )
+conditions = [ NodePath("../ISGV"), NodePath("../GWZO"), NodePath("../HAIT"), NodePath("../SI") ]
+rotate_axis = "z"
+mesh_scale = 0.5
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Network" type="Spatial" parent="."]
+script = ExtResource( 21 )
+[connection signal="pressed" from="UI/Start/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/Scan/ScanButton" to="." method="_on_ScanButton_pressed"]
+[connection signal="pressed" from="UI/Content/CloseContentButton" to="." method="_on_CloseContentButton_pressed"]
+[connection signal="input_event" from="InputField" to="InputField" method="_on_InputField_input_event"]
