@@ -1,4 +1,4 @@
-# DH Day 2020 Poseter
+# DH Day 2020 Poster
 
 Interactive poster for the [Digital Humanities Day Leipzig 2020](https://fdhl.info/Veranstaltung/digital-humanities-day-leipzig-2020/).
 
