@@ -24,6 +24,9 @@ export var rotation_on: bool = true
 export var rotate_axis: String = "y"
 export var mesh_scale: float = 1.0
 
+export var is_kowed: bool = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("Interactibles")
@@ -60,7 +63,7 @@ func _on_Area_body_exited(body):
 	emit_signal("hide_scan_ui")
 	
 func scan() -> void:
-	if !scanned and in_network:
+	if !scanned and (in_network or is_kowed):
 		scanned = true
 		emit_signal("was_scanned")
 

@@ -20,7 +20,10 @@ func _ready():
 		node.connect("hide_scan_ui", self, "_on_hide_scan_ui")
 		
 	for node in $Targets.get_children():
-		node.connect("was_scanned", progress_ui, "_on_planet_scanned")
+		if node.in_network:
+			node.connect("was_scanned", progress_ui, "_on_planet_scanned")
+		elif node.is_kowed:
+			node.connect("was_scanned", progress_ui, "_on_kowed_scanned")
 
 func _on_Button_pressed():
 	start_ui.visible = false
@@ -50,6 +53,7 @@ func _on_Button_pressed():
 	yield(get_tree().create_timer(0.5), "timeout")
 	title_ui.visible = false
 	about_ui.visible = false
+	progress_ui.visible = true
 	input_field.accept_input = true
 
 
