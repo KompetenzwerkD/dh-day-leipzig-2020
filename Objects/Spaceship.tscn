@@ -129,4 +129,4 @@ mesh = SubResource( 10 )
 material/0 = SubResource( 12 )
 
 [node name="CameraPositon" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 20, 18 )
+transform = Transform( 1, 0, 0, 0, 0.819152, 0.573577, 0, -0.573577, 0.819152, 0, 20, 14.9132 )
