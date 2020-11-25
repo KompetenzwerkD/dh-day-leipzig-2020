@@ -38,10 +38,14 @@ func _ready():
 		$Sphere.material_override = material
 		
 	$Sphere.scale *= mesh_scale
+	
+	if mesh_scale != 1:
+		$CollisionShape.scale *= mesh_scale
 		
 	if conditions.size() > 0:
 		visible = false
 		$Area/CollisionShape.disabled = true
+		$CollisionShape.disabled = true
 		for nodepath in conditions:
 			var node: Interactible = get_node(nodepath)
 			node.connect("was_scanned", self, "_on_condition_was_scanned")
@@ -73,3 +77,4 @@ func _on_condition_was_scanned() -> void:
 	if condition_count == conditions.size():
 		visible = true
 		$Area/CollisionShape.disabled = false
+		$CollisionShape.disabled = true
