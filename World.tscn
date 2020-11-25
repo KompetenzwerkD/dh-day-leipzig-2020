@@ -1374,7 +1374,7 @@ __meta__ = {
 margin_right = 520.0
 margin_bottom = 26.0
 custom_fonts/font = ExtResource( 9 )
-text = "ProjektManagement"
+text = "Projektmanagement"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1385,7 +1385,7 @@ margin_top = 46.0
 margin_right = 520.0
 margin_bottom = 72.0
 custom_fonts/font = ExtResource( 9 )
-text = "Digitale Wissenstransfer"
+text = "Digitaler Wissenstransfer"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
