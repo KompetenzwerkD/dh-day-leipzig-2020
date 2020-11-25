@@ -15,6 +15,9 @@ var current_interactible:Interactible = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	content_ui.visible = false
+	
 	for node in get_tree().get_nodes_in_group("Interactibles"):
 		node.connect("show_scan_ui", self, "_on_show_scan_ui")
 		node.connect("hide_scan_ui", self, "_on_hide_scan_ui")
