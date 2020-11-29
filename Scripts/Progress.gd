@@ -18,4 +18,4 @@ func _on_planet_scanned():
 
 func _on_kowed_scanned():
 	kowed_found += 1
-	$ColorRect/KowedCountLabel.text = str(kowed_found) + "/4"
+	$ColorRect/KowedCountLabel.text = str(kowed_found) + "/5"

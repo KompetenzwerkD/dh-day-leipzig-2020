@@ -28,7 +28,7 @@ albedo_texture = ExtResource( 1 )
 radius = 4.11091
 
 [sub_resource type="SphereShape" id=4]
-radius = 2.49922
+radius = 1.92357
 
 [node name="Planet" type="StaticBody"]
 input_ray_pickable = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Assets/Textures/Milkyway_BG.jpg" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/Oswald-VariableFont_wght.ttf" type="DynamicFontData" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Assets/Textures/peter_logo.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Textures/dirk_logo.png" type="Texture" id=34]
 [ext_resource path="res://Assets/Textures/franziska_logo.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Textures/infoportal_logo.png" type="Texture" id=36]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -94,12 +95,25 @@ material = SubResource( 9 )
 radial_segments = 16
 rings = 8
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 30 )
 shader_param/albedo_color = Color( 0.027451, 0.607843, 0.635294, 1 )
 shader_param/noise_scale = 3.0
 shader_param/noise_strength = 0.7
 shader_param/time_scale = 0.2
+shader_param/noise_texture = ExtResource( 31 )
+
+[sub_resource type="SphereMesh" id=12]
+material = SubResource( 11 )
+radial_segments = 16
+rings = 8
+
+[sub_resource type="ShaderMaterial" id=13]
+shader = ExtResource( 30 )
+shader_param/albedo_color = Color( 0.2, 0.654902, 0.901961, 1 )
+shader_param/noise_scale = 1.0
+shader_param/noise_strength = 0.3
+shader_param/time_scale = 0.03
 shader_param/noise_texture = ExtResource( 31 )
 
 [sub_resource type="SphereMesh" id=14]
@@ -109,27 +123,14 @@ rings = 8
 
 [sub_resource type="ShaderMaterial" id=15]
 shader = ExtResource( 30 )
-shader_param/albedo_color = Color( 0.2, 0.654902, 0.901961, 1 )
-shader_param/noise_scale = 1.0
-shader_param/noise_strength = 0.3
-shader_param/time_scale = 0.03
-shader_param/noise_texture = ExtResource( 31 )
-
-[sub_resource type="SphereMesh" id=16]
-material = SubResource( 15 )
-radial_segments = 16
-rings = 8
-
-[sub_resource type="ShaderMaterial" id=11]
-shader = ExtResource( 30 )
 shader_param/albedo_color = Color( 0.101961, 0.0666667, 0.505882, 1 )
 shader_param/noise_scale = 1.0
 shader_param/noise_strength = 0.3
 shader_param/time_scale = 0.01
 shader_param/noise_texture = ExtResource( 31 )
 
-[sub_resource type="SphereMesh" id=12]
-material = SubResource( 11 )
+[sub_resource type="SphereMesh" id=16]
+material = SubResource( 15 )
 radial_segments = 16
 rings = 8
 
@@ -212,9 +213,9 @@ color = Color( 0.156863, 0.156863, 0.156863, 0.898039 )
 [node name="SubtitleLabel2" type="Label" parent="UI/About/ColorRect"]
 anchor_bottom = 0.25
 margin_left = 56.0
-margin_top = 40.0
+margin_top = 88.0
 margin_right = 591.0
-margin_bottom = 212.0
+margin_bottom = 260.0
 custom_fonts/font = ExtResource( 9 )
 text = "Interactives Poster
 Entdecke die Aktivitäten des Netzwerkes und der Werkstatt im Rahmen der außeruniversitären geisteswissenschaftlichen Forschungseinrichtungen Sachsens.
@@ -272,7 +273,6 @@ __meta__ = {
 }
 
 [node name="GWZO" type="Control" parent="UI/Content"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -280,7 +280,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 88.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -298,57 +298,50 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/GWZO/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 192.0
-margin_right = 184.0
-margin_bottom = 232.0
-
-[node name="URLButton2" parent="UI/Content/GWZO/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 251.0
-margin_right = 184.0
-margin_bottom = 291.0
-url = "https://twitter.com/LeibnizGWZO"
-label = "[ twitter ]"
+margin_left = 104.0
+margin_top = 166.0
+margin_right = 224.0
+margin_bottom = 206.0
+label = "website"
 
 [node name="URLButton3" parent="UI/Content/GWZO/ColorRect" instance=ExtResource( 20 )]
-margin_left = 56.0
-margin_top = 701.0
-margin_right = 176.0
-margin_bottom = 741.0
+margin_left = 248.0
+margin_top = 536.0
+margin_right = 368.0
+margin_bottom = 576.0
 url = "https://www.epimeddat.org/"
-label = "[ prototyp ]"
+label = "prototyp"
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/GWZO/ColorRect"]
-margin_left = 56.0
-margin_top = 384.0
-margin_right = 576.0
-margin_bottom = 463.0
+margin_left = 48.0
+margin_top = 472.0
+margin_right = 568.0
+margin_bottom = 514.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]"
+text = "Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="DescLabel" type="Label" parent="UI/Content/GWZO/ColorRect"]
-margin_left = 232.0
-margin_top = 192.0
-margin_right = 584.0
-margin_bottom = 339.0
+margin_left = 56.0
+margin_top = 248.0
+margin_right = 576.0
+margin_bottom = 344.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das Leibniz-Institut für Geschichte und Kultur des östlichen Europa (GWZO) hat die Region zwischen Ostsee, Schwarzem Meer und Adria im Forschungsfokus."
+text = "Das GWZO hat die Region zwischen Ostsee, Schwarzem Meer und Adria im Forschungsfokus. Von der Spätantike bis heute untersucht es Eigenheiten, Wandlungen und Wechselbeziehungen in einer immer globaleren Welt."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/GWZO/ColorRect"]
-margin_left = 56.0
-margin_top = 440.0
-margin_right = 576.0
-margin_bottom = 843.0
+margin_left = 88.0
+margin_top = 536.0
+margin_right = 608.0
+margin_bottom = 720.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -367,7 +360,7 @@ __meta__ = {
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/GWZO/ColorRect/VBoxContainer"]
 margin_top = 53.0
 margin_right = 520.0
-margin_bottom = 224.0
+margin_bottom = 170.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -375,31 +368,9 @@ __meta__ = {
 
 [node name="EpimedDatDesc" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails"]
 margin_right = 520.0
-margin_bottom = 47.0
+margin_bottom = 117.0
 custom_fonts/font = ExtResource( 9 )
-text = "Open Data collection für histolrische Epidemien und mittelalterliche Krankheiten"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EpimedDatDesc2" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 62.0
-margin_right = 520.0
-margin_bottom = 84.0
-custom_fonts/font = ExtResource( 9 )
-text = "Geplante Umsetzung mit Semantic Mediawiki"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EpimedDatDesc3" type="Label" parent="UI/Content/GWZO/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 99.0
-margin_right = 520.0
-margin_bottom = 171.0
-custom_fonts/font = ExtResource( 9 )
-text = "Das Kopetenzwerk unterstützte bei der Antrangsstellung, Erstellung des Prototypen und dem Forschungsdatenmanagement"
+text = "Open Data Sammlung für historische Epidemien und mittelalterliche Krankheiten.  Das Kompetenzwerk unterstützte bei der Antrangsstellung, dem Forschungsdatenmanagement und ist bei der Umsetzung mittels Semantic Mediawiki beteiligt."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -413,7 +384,8 @@ anchor_bottom = 1.0
 [node name="ColorRect" type="ColorRect" parent="UI/Content/DI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+margin_bottom = 80.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -431,25 +403,18 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/DI/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 192.0
-margin_right = 184.0
-margin_bottom = 232.0
+margin_left = 104.0
+margin_top = 159.0
+margin_right = 224.0
+margin_bottom = 199.0
 url = "https://www.dubnow.de/"
-
-[node name="URLButton2" parent="UI/Content/DI/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 256.0
-margin_right = 184.0
-margin_bottom = 296.0
-url = "https://mimeo.dubnow.de/"
-label = "[ blog ]"
+label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/DI/ColorRect"]
-margin_left = 232.0
-margin_top = 192.0
-margin_right = 584.0
-margin_bottom = 339.0
+margin_left = 56.0
+margin_top = 248.0
+margin_right = 576.0
+margin_bottom = 359.0
 custom_fonts/font = ExtResource( 9 )
 text = "Das DI ist ein interdisziplinär ausgerichtetes Institut zur Erforschung jüdischer Lebenswelten in Mittel- und Osteuropa vom Mittelalter bis in die Gegenwart."
 autowrap = true
@@ -459,29 +424,29 @@ __meta__ = {
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/DI/ColorRect"]
 margin_left = 56.0
-margin_top = 391.0
+margin_top = 456.0
 margin_right = 576.0
-margin_bottom = 431.0
+margin_bottom = 522.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]"
+text = "Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/DI/ColorRect"]
-margin_left = 56.0
-margin_top = 464.0
-margin_right = 576.0
-margin_bottom = 867.0
+margin_left = 104.0
+margin_top = 508.098
+margin_right = 568.0
+margin_bottom = 671.098
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProjectTitle" type="Label" parent="UI/Content/DI/ColorRect/VBoxContainer"]
-margin_right = 520.0
+margin_right = 464.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 8 )
 text = "Doktorand*Innenworkshop"
@@ -492,16 +457,16 @@ __meta__ = {
 
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/DI/ColorRect/VBoxContainer"]
 margin_top = 53.0
-margin_right = 520.0
-margin_bottom = 125.0
+margin_right = 464.0
+margin_bottom = 122.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/Content/DI/ColorRect/VBoxContainer/ProjectDetails"]
-margin_right = 520.0
-margin_bottom = 72.0
+margin_right = 464.0
+margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
 text = "Abhaltung eines Workshops zum Thema Social Media und Digitales Publishing für die Doktorand*Innen des Institutes"
 autowrap = true
@@ -518,7 +483,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 88.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -536,17 +501,18 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/HAIT/ColorRect" instance=ExtResource( 20 )]
-margin_left = 56.0
-margin_top = 191.0
-margin_right = 176.0
-margin_bottom = 231.0
+margin_left = 104.0
+margin_top = 175.0
+margin_right = 224.0
+margin_bottom = 215.0
 url = "https://hait.tu-dresden.de/ext/"
+label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/HAIT/ColorRect"]
-margin_left = 232.0
-margin_top = 184.0
-margin_right = 584.0
-margin_bottom = 331.0
+margin_left = 64.0
+margin_top = 258.0
+margin_right = 568.0
+margin_bottom = 405.0
 custom_fonts/font = ExtResource( 9 )
 text = "Das HAIT beschäftigt sich mit der systematischen Untersuchung des Nationalsozialismus und des Kommunismus sowie den Voraussetzungen und Folgen beider Herrschaftssysteme."
 autowrap = true
@@ -555,31 +521,30 @@ __meta__ = {
 }
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/HAIT/ColorRect"]
-margin_left = 56.0
-margin_top = 384.0
-margin_right = 576.0
-margin_bottom = 463.0
+margin_left = 64.0
+margin_top = 453.0
+margin_right = 584.0
+margin_bottom = 501.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]
-"
+text = "Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/HAIT/ColorRect"]
-margin_left = 56.0
-margin_top = 456.0
-margin_right = 576.0
-margin_bottom = 859.0
+margin_left = 104.0
+margin_top = 520.0
+margin_right = 552.0
+margin_bottom = 784.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProjectTitle" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer"]
-margin_right = 520.0
+margin_right = 448.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 8 )
 text = "\"Corona-Projekt\""
@@ -590,16 +555,16 @@ __meta__ = {
 
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/HAIT/ColorRect/VBoxContainer"]
 margin_top = 53.0
-margin_right = 520.0
-margin_bottom = 224.0
+margin_right = 448.0
+margin_bottom = 194.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer/ProjectDetails"]
-margin_right = 520.0
-margin_bottom = 97.0
+margin_right = 448.0
+margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
 text = "Vom Virus zu viralen Verschwörungstheorien: Die \"Spanische Grippe\" und die COVID-19-Pandemie in interdisziplinärer und internationaler Perspektive"
 autowrap = true
@@ -608,9 +573,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 112.0
-margin_right = 520.0
-margin_bottom = 134.0
+margin_top = 84.0
+margin_right = 448.0
+margin_bottom = 105.0
 custom_fonts/font = ExtResource( 9 )
 text = "Unterstützung bei der Antrangsstellung"
 autowrap = true
@@ -619,9 +584,9 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="UI/Content/HAIT/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 149.0
-margin_right = 520.0
-margin_bottom = 171.0
+margin_top = 120.0
+margin_right = 448.0
+margin_bottom = 141.0
 custom_fonts/font = ExtResource( 9 )
 autowrap = true
 __meta__ = {
@@ -637,7 +602,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 88.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -655,17 +620,18 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/SI/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 152.0
-margin_right = 184.0
-margin_bottom = 192.0
+margin_left = 96.0
+margin_top = 144.0
+margin_right = 216.0
+margin_bottom = 184.0
 url = "https://www.serbski-institut.de"
+label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/SI/ColorRect"]
-margin_left = 232.0
-margin_top = 152.0
-margin_right = 584.0
-margin_bottom = 294.0
+margin_left = 64.0
+margin_top = 248.0
+margin_right = 568.0
+margin_bottom = 390.0
 custom_fonts/font = ExtResource( 9 )
 text = "Das SI erforscht die Sprache, Geschichte und Kultur der Sorben (Wenden) in der Ober- und der Niederlausitz in Vergangenheit und Gegenwart."
 autowrap = true
@@ -674,53 +640,52 @@ __meta__ = {
 }
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/SI/ColorRect"]
-margin_left = 56.0
-margin_top = 368.0
-margin_right = 576.0
-margin_bottom = 447.0
+margin_left = 64.0
+margin_top = 440.0
+margin_right = 584.0
+margin_bottom = 478.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]
-"
+text = "Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/SI/ColorRect"]
-margin_left = 56.0
-margin_top = 424.0
+margin_left = 96.0
+margin_top = 508.0
 margin_right = 576.0
-margin_bottom = 827.0
-custom_constants/separation = 25
+margin_bottom = 763.0
+custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProjectTitle" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer"]
-margin_right = 520.0
+margin_right = 480.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 8 )
-text = "???"
+text = "Open Access Strategie"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/SI/ColorRect/VBoxContainer"]
-margin_top = 63.0
-margin_right = 520.0
-margin_bottom = 85.0
+margin_top = 53.0
+margin_right = 480.0
+margin_bottom = 122.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/Content/SI/ColorRect/VBoxContainer/ProjectDetails"]
-margin_right = 520.0
-margin_bottom = 22.0
+margin_right = 480.0
+margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
-text = "???"
+text = "Das SI strebt eine verbesserte Bereitstellung seiner Forschungsdaten an und wird dabei vom Kompetenzwerk beraten"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -735,7 +700,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 88.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -753,17 +718,18 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/SAW/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 200.0
-margin_right = 184.0
-margin_bottom = 240.0
+margin_left = 112.0
+margin_top = 192.0
+margin_right = 232.0
+margin_bottom = 232.0
 url = "https://www.saw-leipzig.de"
+label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
-margin_left = 232.0
-margin_top = 200.0
-margin_right = 584.0
-margin_bottom = 342.0
+margin_left = 64.0
+margin_top = 288.0
+margin_right = 576.0
+margin_bottom = 368.0
 custom_fonts/font = ExtResource( 9 )
 text = "Die SAW betreibt zur Zeit über 20 Forschungsvorhaben im geisteswissenschaftlichen Bereich."
 autowrap = true
@@ -773,29 +739,29 @@ __meta__ = {
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
 margin_left = 56.0
-margin_top = 368.0
+margin_top = 400.0
 margin_right = 576.0
-margin_bottom = 447.0
+margin_bottom = 440.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]"
+text = "Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/SAW/ColorRect"]
-margin_left = 56.0
-margin_top = 424.0
-margin_right = 576.0
-margin_bottom = 827.0
-custom_constants/separation = 25
+margin_left = 112.0
+margin_top = 460.0
+margin_right = 584.0
+margin_bottom = 668.0
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProjectTitle" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
-margin_right = 520.0
+margin_right = 472.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 8 )
 text = "csv2cmi Webapp"
@@ -805,30 +771,66 @@ __meta__ = {
 }
 
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/SAW/ColorRect/VBoxContainer"]
-margin_top = 63.0
-margin_right = 520.0
-margin_bottom = 197.0
+margin_top = 48.0
+margin_right = 472.0
+margin_bottom = 141.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer/ProjectDetails"]
-margin_right = 520.0
-margin_bottom = 72.0
+margin_right = 472.0
+margin_bottom = 93.0
 custom_fonts/font = ExtResource( 9 )
-text = "Webapp zur Konvertierung von im csv Format erfassten Briefeditionen in das CMI Format, zur Integrationd er Daten in correspsearch."
+text = "Untersützung bei der Entwicklung einer Webapp zur Konvertierung von in Spreadsheets erfassten Briefeditionen zur Integration in das Briefeditionen-Webportal \"correspsearch\"."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 87.0
-margin_right = 520.0
-margin_bottom = 134.0
+[node name="URLButton2" parent="UI/Content/SAW/ColorRect" instance=ExtResource( 20 )]
+margin_left = 332.0
+margin_top = 456.0
+margin_right = 452.0
+margin_bottom = 496.0
+url = "https://cmif.saw-leipzig.de"
+label = "webapp"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Content/SAW/ColorRect"]
+margin_left = 112.0
+margin_top = 640.0
+margin_right = 568.0
+margin_bottom = 848.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectTitle2" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer2"]
+margin_right = 456.0
+margin_bottom = 38.0
+custom_fonts/font = ExtResource( 8 )
+text = "Nachtragserfassung für Wörterbücher"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/SAW/ColorRect/VBoxContainer2"]
+margin_top = 48.0
+margin_right = 456.0
+margin_bottom = 117.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Content/SAW/ColorRect/VBoxContainer2/ProjectDetails2"]
+margin_right = 456.0
+margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das Kompetenzwerk unterstützte bei der Entwicklung des Backends."
+text = "Beteiligung an der Planung eines Systems zur Erfassung von Wörterbucheinträgen mit Schwerpunkt auf Nachträge."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -843,40 +845,67 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 88.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TitleLabel" type="Label" parent="UI/Content/KOWED/ColorRect"]
 margin_left = 56.0
-margin_top = 64.0
+margin_top = 88.0
 margin_right = 584.0
-margin_bottom = 225.0
+margin_bottom = 143.0
 custom_fonts/font = ExtResource( 8 )
-text = "KompetenzwerkD
-Sächsisches Forschungszentrum und Kompetenznetzwerk für Digitale Geisteswissenschaften und Kulturelles Erbe"
+text = "KompetenzwerkD  - Netzwerk und Werkstatt"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label5" type="Label" parent="UI/Content/KOWED/ColorRect"]
+margin_left = 56.0
+margin_top = 248.0
+margin_right = 576.0
+margin_bottom = 365.0
+custom_fonts/font = ExtResource( 9 )
+text = "Das KompetenzwerkD wurde 2020 gegründet und besteht aus einem Netzwerk von sechs außeruniversitären geisteswissenschaftlichen Forschungsinstiutionen in Sachsens und einer Werkstatt (siehe Team), angesiedelt an der Sächsischen Akademie der Wissenschaften zu Leipzig."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="URLButton" parent="UI/Content/KOWED/ColorRect" instance=ExtResource( 20 )]
-margin_left = 56.0
-margin_top = 256.0
-margin_right = 176.0
-margin_bottom = 296.0
+margin_left = 88.0
+margin_top = 159.0
+margin_right = 208.0
+margin_bottom = 199.0
 url = "https://kompetenzwerkd.github.io/infoportal/"
-label = "[ infoportal ]"
+label = "infoportal"
+
+[node name="URLButton2" parent="UI/Content/KOWED/ColorRect" instance=ExtResource( 20 )]
+margin_left = 248.0
+margin_top = 159.0
+margin_right = 368.0
+margin_bottom = 199.0
+url = "https://twitter.com/kompetenzwerk"
+label = "twitter"
+
+[node name="URLButton3" parent="UI/Content/KOWED/ColorRect" instance=ExtResource( 20 )]
+margin_left = 408.0
+margin_top = 160.0
+margin_right = 528.0
+margin_bottom = 200.0
+url = "https://github.com/kompetenzwerkd/"
+label = "github"
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/KOWED/ColorRect"]
 margin_left = 56.0
-margin_top = 360.0
+margin_top = 432.0
 margin_right = 576.0
-margin_bottom = 439.0
+margin_bottom = 511.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Aufgaben und Ziele ]
+text = "Aufgaben und Ziele
 "
 autowrap = true
 __meta__ = {
@@ -884,10 +913,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/KOWED/ColorRect"]
-margin_left = 56.0
-margin_top = 426.0
-margin_right = 576.0
-margin_bottom = 829.0
+margin_left = 88.0
+margin_top = 487.0
+margin_right = 608.0
+margin_bottom = 890.0
 custom_constants/separation = 25
 __meta__ = {
 "_edit_use_anchors_": false
@@ -895,7 +924,7 @@ __meta__ = {
 
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/KOWED/ColorRect/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 345.0
+margin_bottom = 273.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -903,7 +932,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="UI/Content/KOWED/ColorRect/VBoxContainer/ProjectDetails"]
 margin_right = 520.0
-margin_bottom = 72.0
+margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
 text = "Realisierung von Open Access, Open Data, Open Source und Open Science in der Breite geisteswissenschaftlicher Forschung in Sachsen"
 autowrap = true
@@ -912,9 +941,9 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="UI/Content/KOWED/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 87.0
+margin_top = 84.0
 margin_right = 520.0
-margin_bottom = 184.0
+margin_bottom = 177.0
 custom_fonts/font = ExtResource( 9 )
 text = "Optimierung der Auffindbarkeit, Zugänglichkeit, Interoperabilität und Nachnutzbarkeit geisteswissenschaftlicher Forschungsdaten (FAIR-Data-Prinzipien)"
 autowrap = true
@@ -923,9 +952,9 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="UI/Content/KOWED/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 199.0
+margin_top = 192.0
 margin_right = 520.0
-margin_bottom = 271.0
+margin_bottom = 237.0
 custom_fonts/font = ExtResource( 9 )
 text = "Bündelung lokaler Kompetenzen und methodischen Know-Hows in den Digital Humanities"
 autowrap = true
@@ -934,22 +963,11 @@ __meta__ = {
 }
 
 [node name="Label4" type="Label" parent="UI/Content/KOWED/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 286.0
+margin_top = 252.0
 margin_right = 520.0
-margin_bottom = 308.0
+margin_bottom = 273.0
 custom_fonts/font = ExtResource( 9 )
 text = "Aufbau langfristig stabiler digitaler Angebote"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label5" type="Label" parent="UI/Content/KOWED/ColorRect/VBoxContainer/ProjectDetails"]
-margin_top = 323.0
-margin_right = 520.0
-margin_bottom = 345.0
-custom_fonts/font = ExtResource( 9 )
-text = "Ressourcenvernetzung"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -964,7 +982,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 91.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -983,29 +1001,30 @@ __meta__ = {
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
 margin_left = 56.0
-margin_top = 352.0
+margin_top = 415.0
 margin_right = 576.0
-margin_bottom = 431.0
+margin_bottom = 455.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]"
+text = "Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="URLButton" parent="UI/Content/ISGV/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 183.0
-margin_right = 184.0
-margin_bottom = 223.0
+margin_left = 104.0
+margin_top = 175.0
+margin_right = 224.0
+margin_bottom = 215.0
 url = "https://www.isgv.de/"
+label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
-margin_left = 232.0
-margin_top = 183.0
-margin_right = 584.0
-margin_bottom = 325.0
+margin_left = 64.0
+margin_top = 264.0
+margin_right = 560.0
+margin_bottom = 344.0
 custom_fonts/font = ExtResource( 9 )
 text = "Das ISGV hat den Auftrag, die sächsische Geschichte  in ihren historischen Räumen sowie ihren und die alltäglichen Lebenswelten  zu erforschen."
 autowrap = true
@@ -1014,17 +1033,17 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect"]
-margin_left = 56.0
-margin_top = 400.0
-margin_right = 576.0
-margin_bottom = 832.0
+margin_left = 104.0
+margin_top = 468.0
+margin_right = 584.0
+margin_bottom = 732.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ProjectDetails" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
-margin_right = 520.0
+margin_right = 480.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1032,7 +1051,7 @@ __meta__ = {
 
 [node name="OstData" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
 margin_top = 15.0
-margin_right = 520.0
+margin_right = 480.0
 margin_bottom = 53.0
 custom_fonts/font = ExtResource( 8 )
 text = "Digitales Bildarchiv"
@@ -1043,16 +1062,16 @@ __meta__ = {
 
 [node name="ProjectDetails2" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect/VBoxContainer"]
 margin_top = 68.0
-margin_right = 520.0
-margin_bottom = 227.0
+margin_right = 480.0
+margin_bottom = 221.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer/ProjectDetails2"]
-margin_right = 520.0
-margin_bottom = 97.0
+margin_right = 480.0
+margin_bottom = 93.0
 custom_fonts/font = ExtResource( 9 )
 text = "Bestand an Fotografien, Zeichnungen, Drucken etc. zu Sachsen, der laufend ausgebaut, digital erschlossen und der Öffentlichkeit im Internet zugänglich gemacht wird"
 autowrap = true
@@ -1061,11 +1080,11 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="UI/Content/ISGV/ColorRect/VBoxContainer/ProjectDetails2"]
-margin_top = 112.0
-margin_right = 520.0
-margin_bottom = 159.0
+margin_top = 108.0
+margin_right = 480.0
+margin_bottom = 153.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das Kompetenzwerk untersützt im Bereich des Datenmodells"
+text = "Das Komptenzwerk unterstützt beratend bei der Neuentwicklung des Bildarchivs (Datenmodell)"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1080,7 +1099,7 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 91.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1099,11 +1118,12 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/1989/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 257.098
-margin_right = 184.0
-margin_bottom = 297.098
+margin_left = 104.0
+margin_top = 248.0
+margin_right = 224.0
+margin_bottom = 288.0
 url = "https://multitrafo.hypotheses.org/"
+label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/1989/ColorRect"]
 margin_left = 56.0
@@ -1119,43 +1139,170 @@ __meta__ = {
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/1989/ColorRect"]
 margin_left = 56.0
-margin_top = 547.0
+margin_top = 528.0
 margin_right = 576.0
-margin_bottom = 626.0
+margin_bottom = 607.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Kooperation mit dem KompetenzwerkD ]"
+text = "
+Kooperation mit dem KompetenzwerkD"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/1989/ColorRect"]
-margin_left = 56.0
-margin_top = 610.0
-margin_right = 576.0
-margin_bottom = 867.0
-custom_constants/separation = 20
+margin_left = 104.0
+margin_top = 624.0
+margin_right = 568.0
+margin_bottom = 736.0
+custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EpimedDatDesc" type="Label" parent="UI/Content/1989/ColorRect/VBoxContainer"]
-margin_right = 520.0
-margin_bottom = 22.0
+margin_right = 464.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 9 )
-text = "Gemeinsames Forschungsdatenmanagement"
+text = "Gemeinsames Forschungsdatenmanagement; und i."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EpimedDatDesc2" type="Label" parent="UI/Content/1989/ColorRect/VBoxContainer"]
-margin_top = 42.0
-margin_right = 520.0
-margin_bottom = 114.0
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 81.0
 custom_fonts/font = ExtResource( 9 )
-text = "Entwicklung eines Systems zur zentralen Ressourcen- und Metadatenerfassung Forschungsdatenbank (Semantic Mediawiki)"
+text = "Entwickelung ein System zur zentralen Ressourcen- und Metadatenerfassung mittels Semantic Mediawik"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Infoportal" type="Control" parent="UI/Content"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/Content/Infoportal"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 91.0
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleLabel" type="Label" parent="UI/Content/Infoportal/ColorRect"]
+margin_left = 56.0
+margin_top = 88.0
+margin_right = 584.0
+margin_bottom = 167.0
+rect_rotation = -0.119166
+rect_scale = Vector2( 1.00001, 0.992507 )
+custom_fonts/font = ExtResource( 8 )
+text = "KompetenzwerkD Infoportal
+"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="URLButton" parent="UI/Content/Infoportal/ColorRect" instance=ExtResource( 20 )]
+margin_left = 104.0
+margin_top = 144.0
+margin_right = 224.0
+margin_bottom = 184.0
+url = "https://kompetenzwerkd.saw-leipzig.de"
+label = "website"
+
+[node name="DescLabel" type="Label" parent="UI/Content/Infoportal/ColorRect"]
+margin_left = 56.0
+margin_top = 258.0
+margin_right = 592.0
+margin_bottom = 329.0
+custom_fonts/font = ExtResource( 9 )
+text = "Informationsquelle zu verschiedenen Themen rund um die Digitalen Geisteswissenschaften für unsere Partner und alle Interessierten."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProjectsLabel" type="Label" parent="UI/Content/Infoportal/ColorRect"]
+margin_left = 56.0
+margin_top = 424.0
+margin_right = 576.0
+margin_bottom = 463.0
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
+text = "Schwerpunkte"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/Infoportal/ColorRect"]
+margin_left = 104.0
+margin_top = 480.0
+margin_right = 568.0
+margin_bottom = 657.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc" type="Label" parent="UI/Content/Infoportal/ColorRect/VBoxContainer"]
+margin_right = 464.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 9 )
+text = "Digitales Arbeiten"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc2" type="Label" parent="UI/Content/Infoportal/ColorRect/VBoxContainer"]
+margin_top = 36.0
+margin_right = 464.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 9 )
+text = "Forschungsdatenmanagement"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc5" type="Label" parent="UI/Content/Infoportal/ColorRect/VBoxContainer"]
+margin_top = 72.0
+margin_right = 464.0
+margin_bottom = 93.0
+custom_fonts/font = ExtResource( 9 )
+text = "Wissensspeicher / Knowledge bases"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc4" type="Label" parent="UI/Content/Infoportal/ColorRect/VBoxContainer"]
+margin_top = 108.0
+margin_right = 464.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 9 )
+text = "Nationale Forschungsdateninfrastruktur (NFDI)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc3" type="Label" parent="UI/Content/Infoportal/ColorRect/VBoxContainer"]
+margin_top = 144.0
+margin_right = 464.0
+margin_bottom = 165.0
+custom_fonts/font = ExtResource( 9 )
+text = "Digitales Publizieren und Ausstellungen"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1174,7 +1321,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 16.0
 margin_bottom = 91.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1192,19 +1339,36 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/Franziska/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 152.0
-margin_right = 184.0
-margin_bottom = 192.0
+margin_left = 96.0
+margin_top = 136.0
+margin_right = 216.0
+margin_bottom = 176.0
 url = "https://multitrafo.hypotheses.org/"
+label = "website"
+
+[node name="URLButton3" parent="UI/Content/Franziska/ColorRect" instance=ExtResource( 20 )]
+margin_left = 264.0
+margin_top = 136.0
+margin_right = 384.0
+margin_bottom = 176.0
+url = "https://twitter.com/Dr_Frantastic"
+label = "twitter"
+
+[node name="URLButton2" parent="UI/Content/Franziska/ColorRect" instance=ExtResource( 20 )]
+margin_left = 96.0
+margin_top = 627.0
+margin_right = 216.0
+margin_bottom = 667.0
+url = "https://ausstellungen.deutsche-digitale-bibliothek.de/stein-von-rosette/"
+label = "ausstellung"
 
 [node name="DescLabel" type="Label" parent="UI/Content/Franziska/ColorRect"]
-margin_left = 56.0
-margin_top = 556.0
-margin_right = 592.0
-margin_bottom = 727.0
+margin_left = 96.0
+margin_top = 552.0
+margin_right = 552.0
+margin_bottom = 609.0
 custom_fonts/font = ExtResource( 9 )
-text = "Quote"
+text = "\"Aller guten Dinge sind drei\" - Der Stein von Rosette und die Entzifferung des Ägyptischen"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1217,7 +1381,7 @@ margin_right = 576.0
 margin_bottom = 343.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Schwerpunkte ]
+text = "Schwerpunkte
 "
 autowrap = true
 __meta__ = {
@@ -1228,21 +1392,20 @@ __meta__ = {
 margin_left = 56.0
 margin_top = 496.0
 margin_right = 576.0
-margin_bottom = 616.0
+margin_bottom = 543.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Mission]
-"
+text = "Aktuelle Austellung"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/Franziska/ColorRect"]
-margin_left = 56.0
-margin_top = 336.0
-margin_right = 576.0
-margin_bottom = 593.0
+margin_left = 96.0
+margin_top = 326.0
+margin_right = 616.0
+margin_bottom = 448.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1250,7 +1413,7 @@ __meta__ = {
 
 [node name="EpimedDatDesc" type="Label" parent="UI/Content/Franziska/ColorRect/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 22.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 9 )
 text = "Projektmanagement"
 autowrap = true
@@ -1259,11 +1422,22 @@ __meta__ = {
 }
 
 [node name="EpimedDatDesc2" type="Label" parent="UI/Content/Franziska/ColorRect/VBoxContainer"]
-margin_top = 42.0
+margin_top = 41.0
 margin_right = 520.0
-margin_bottom = 64.0
+margin_bottom = 62.0
 custom_fonts/font = ExtResource( 9 )
 text = "Digitaler Wissenstransfer"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc3" type="Label" parent="UI/Content/Franziska/ColorRect/VBoxContainer"]
+margin_top = 82.0
+margin_right = 520.0
+margin_bottom = 103.0
+custom_fonts/font = ExtResource( 9 )
+text = "Digitale Austellungen"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1279,7 +1453,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 16.0
 margin_bottom = 91.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1298,19 +1472,20 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/Dirk/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 152.0
-margin_right = 184.0
-margin_bottom = 192.0
-url = "https://multitrafo.hypotheses.org/"
+margin_left = 104.0
+margin_top = 136.0
+margin_right = 224.0
+margin_bottom = 176.0
+url = "https://twitter.com/DonBot_LE"
+label = "twitter"
 
 [node name="DescLabel" type="Label" parent="UI/Content/Dirk/ColorRect"]
-margin_left = 56.0
-margin_top = 556.0
-margin_right = 592.0
-margin_bottom = 727.0
+margin_left = 88.0
+margin_top = 568.0
+margin_right = 624.0
+margin_bottom = 739.0
 custom_fonts/font = ExtResource( 9 )
-text = "Quote"
+text = "Aktuell ist Dirk in erster Linie mit Forschungsdatenmanagement für mehrere Projekte, mit (Meta-)Datenmodellierung und mit Wissensbasen im Allgemeinen (sowie Semantic Mediawiki im Speziellen) beschäftigt."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1323,7 +1498,7 @@ margin_right = 576.0
 margin_bottom = 343.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Schwerpunkte ]
+text = "Schwerpunkte
 "
 autowrap = true
 __meta__ = {
@@ -1334,21 +1509,20 @@ __meta__ = {
 margin_left = 56.0
 margin_top = 504.0
 margin_right = 576.0
-margin_bottom = 583.0
+margin_bottom = 542.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Mission ]
-"
+text = "Derzeitiger Fokus"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/Dirk/ColorRect"]
-margin_left = 56.0
-margin_top = 336.0
-margin_right = 576.0
-margin_bottom = 593.0
+margin_left = 88.0
+margin_top = 328.0
+margin_right = 608.0
+margin_bottom = 444.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1356,20 +1530,31 @@ __meta__ = {
 
 [node name="EpimedDatDesc" type="Label" parent="UI/Content/Dirk/ColorRect/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 22.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 9 )
-text = "Infrastruktur"
+text = "Forschungsinfrastruktur"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EpimedDatDesc2" type="Label" parent="UI/Content/Dirk/ColorRect/VBoxContainer"]
-margin_top = 42.0
+margin_top = 41.0
 margin_right = 520.0
-margin_bottom = 89.0
+margin_bottom = 62.0
 custom_fonts/font = ExtResource( 9 )
-text = "Standardisierung und Forschungsdatenmanagement"
+text = "NFDI-Initiative(n)"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EpimedDatDesc3" type="Label" parent="UI/Content/Dirk/ColorRect/VBoxContainer"]
+margin_top = 82.0
+margin_right = 520.0
+margin_bottom = 103.0
+custom_fonts/font = ExtResource( 9 )
+text = "Forschungsdatenmanagement"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1388,7 +1573,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 16.0
 margin_bottom = 91.0
-color = Color( 0.0196078, 0.0901961, 0.00784314, 0.976471 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 0.976471 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1406,19 +1591,21 @@ __meta__ = {
 }
 
 [node name="URLButton" parent="UI/Content/Peter/ColorRect" instance=ExtResource( 20 )]
-margin_left = 64.0
-margin_top = 152.0
-margin_right = 184.0
-margin_bottom = 192.0
+margin_left = 104.0
+margin_top = 136.0
+margin_right = 224.0
+margin_bottom = 176.0
 url = "https://multitrafo.hypotheses.org/"
+label = "github"
 
 [node name="DescLabel" type="Label" parent="UI/Content/Peter/ColorRect"]
-margin_left = 56.0
+margin_left = 96.0
 margin_top = 556.0
-margin_right = 592.0
+margin_right = 576.0
 margin_bottom = 727.0
 custom_fonts/font = ExtResource( 9 )
-text = "Quote"
+text = "Unser Ziel ist es nachhaltige Forschungssoftware zu fördern. Unter diesem Begriff fallen zahlreiche wichtige Aspekte: Wartbarkeit, Nachnutzbarkeit, Verfügbarkeit, aber auch ökologische Bedenken.
+"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1431,7 +1618,7 @@ margin_right = 576.0
 margin_bottom = 343.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Schwerpunkte ]
+text = "Schwerpunkte
 "
 autowrap = true
 __meta__ = {
@@ -1442,21 +1629,20 @@ __meta__ = {
 margin_left = 56.0
 margin_top = 496.0
 margin_right = 576.0
-margin_bottom = 575.0
+margin_bottom = 543.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
-text = "[ Mission ]
-"
+text = "Mission"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/Peter/ColorRect"]
-margin_left = 56.0
-margin_top = 336.0
-margin_right = 576.0
-margin_bottom = 593.0
+margin_left = 96.0
+margin_top = 323.0
+margin_right = 616.0
+margin_bottom = 458.0
 custom_constants/separation = 20
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1464,20 +1650,20 @@ __meta__ = {
 
 [node name="EpimedDatDesc" type="Label" parent="UI/Content/Peter/ColorRect/VBoxContainer"]
 margin_right = 520.0
-margin_bottom = 22.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 9 )
-text = "Forschungssoftware "
+text = "Forschungssoftware und Entwicklung"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EpimedDatDesc2" type="Label" parent="UI/Content/Peter/ColorRect/VBoxContainer"]
-margin_top = 42.0
+margin_top = 41.0
 margin_right = 520.0
-margin_bottom = 64.0
+margin_bottom = 62.0
 custom_fonts/font = ExtResource( 9 )
-text = "Quatsch"
+text = "Quatsch :)"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1515,9 +1701,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
+margin_left = -136.0
 margin_top = -8.0
-margin_right = -28.0
+margin_right = -36.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0.870588, 0.933333, 0.305882, 1 )
@@ -1531,13 +1717,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 32.0
+margin_left = 16.0
 margin_top = -8.0
-margin_right = 132.0
+margin_right = 116.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0.870588, 0.933333, 0.305882, 1 )
-text = "0/4
+text = "0/5
 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1548,9 +1734,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -88.0
+margin_left = -96.0
 margin_top = -8.0
-margin_right = 12.0
+margin_right = 4.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
 text = "Netzwerk"
@@ -1560,9 +1746,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 72.0
+margin_left = 56.0
 margin_top = -8.0
-margin_right = 172.0
+margin_right = 156.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
 text = "Werkstatt"
@@ -1616,22 +1802,22 @@ content_node = NodePath("../../UI/Content/DI")
 mesh = SubResource( 10 )
 
 [node name="HAIT" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -10.0783, 0, 35.2199 )
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -9.80587, 0, 35.2199 )
 logo = ExtResource( 18 )
 content_node = NodePath("../../UI/Content/HAIT")
-mesh = SubResource( 14 )
+mesh = SubResource( 12 )
 
 [node name="SI" parent="Targets" instance=ExtResource( 3 )]
 transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, 41.2927, 0, -0.0913181 )
 logo = ExtResource( 16 )
 content_node = NodePath("../../UI/Content/SI")
-mesh = SubResource( 16 )
+mesh = SubResource( 14 )
 
 [node name="GWZO" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -19.006, 0, -41.9802 )
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -10.1939, 0, -41.9802 )
 logo = ExtResource( 17 )
 content_node = NodePath("../../UI/Content/GWZO")
-mesh = SubResource( 12 )
+mesh = SubResource( 16 )
 
 [node name="1989" parent="Targets" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.944451, 0.328652, 0, -0.328652, 0.944451, -9.95065, 0, 0 )
@@ -1643,6 +1829,17 @@ material = ExtResource( 25 )
 conditions = [ NodePath("../ISGV"), NodePath("../GWZO"), NodePath("../HAIT"), NodePath("../SI") ]
 rotate_axis = "z"
 mesh_scale = 0.25
+
+[node name="Infoportal" parent="Targets" instance=ExtResource( 3 )]
+transform = Transform( 0.312239, -0.695764, 0.646853, 0.154949, 0.709076, 0.687897, -0.937282, -0.114559, 0.329209, 10.5623, 0, -14.7282 )
+logo = ExtResource( 36 )
+content_node = NodePath("../../UI/Content/Infoportal")
+in_network = false
+mesh = ExtResource( 24 )
+material = ExtResource( 25 )
+rotate_axis = "x"
+mesh_scale = 0.2
+is_kowed = true
 
 [node name="KOWED" parent="Targets" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00837, 3.8147e-06, -0.209667 )

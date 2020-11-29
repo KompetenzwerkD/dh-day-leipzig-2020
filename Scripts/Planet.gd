@@ -39,8 +39,8 @@ func _ready():
 		
 	$Sphere.scale *= mesh_scale
 	
-	if mesh_scale != 1:
-		$CollisionShape.scale *= mesh_scale
+	#if mesh_scale != 1:
+	#	$CollisionShape.scale *= mesh_scale
 		
 	if conditions.size() > 0:
 		visible = false
