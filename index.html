@@ -5,8 +5,6 @@
   <title>DH Day Leipzig 2020 Interactive Poster - KompetenzwerkD</title>
   <meta name="description" content="DH Day Leipzig 2020 Interactive Poster - KompetenzwerkD">
   <meta name="author" content="Sächsische Akademie der Wissenschaften zu Leipzig">
-
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
   
   <style>
       body {
@@ -14,9 +12,20 @@
           padding: 0;
           background-color: #333;
           color: #afafaf;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       }
       a {
           color: white;
+          text-decoration: none;
+      }
+      a:hover {
+          color: #afafaf;
+      }
+      #header {
+          margin: auto;
+          width: 640px;
+          padding-top: 15px;
+          padding-bottom:15px;
       }
       #info {
           padding-top: 30px;
@@ -33,21 +42,33 @@
       #iframe {
           border: 0;
       }
+      span {
+          font-size:0.9em;
+      }
   </style>
 
 
 </head>
 
 <body>
+
+    <div id="header">
+        Interaktives Poster für den <a href="https://fdhl.info/Veranstaltung/digital-humanities-day-leipzig-2020">Digital Humanities Day Leipzig 2020</a>  &nbsp;[ <a href="poster.pdf" target="_new">PDF-Version</a> ]
+    </div>
+
     <div id="content">
         <iframe src="Poster.html" id="iframe" width="640" height="920"></iframe> 
     </div>
     <div id="info">
+        <a href="https://kompetenzwerkd.saw-leipzig.de">KompetenzwerkD</a> | <a href="https://www.saw-leipzig.de">Sächsische Akademie der Wissenschaften zu Leipzig</a> <br /><br />
         <b>Hinweise:</b><br />
-        <li><b>Es kann einen Moment dauern, bis das Poster vollständig geladen ist.</b></li>
-        <li><b>Falls das Raumschiff nicht in der unteren Posterhälfte erscheint, bitte Seite neu laden.</b></li>
-        <br /><br />
-        <a href="https://github.com/kompetenzwerkd/dh-day-leipzig-2020">Source</a>
+        <ul>
+        <li>Untersützte Browser: Firefox, Chrome/Chromium</li>
+        <li>Es kann einen Moment dauern, bis das Poster vollständig geladen ist.</li>
+        <li>Falls das Raumschiff nicht in der unteren Posterhälfte erscheint, bitte Seite neu laden oder den Browser Tab kurz wechseln</li>
+        </ul>
+        <br />
+        <span><a href="https://github.com/kompetenzwerkd/dh-day-leipzig-2020">Source code</a> | "Milkyway" HDRI Map by <a href="http://www.hdrlabs.com/sibl/archive.html">"Blochi/sIBL Archive"</a> (<a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">CC-BY-NC-SA</a>)</span>
     </div>
 </body>
 </html>
