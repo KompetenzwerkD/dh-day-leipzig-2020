@@ -141,7 +141,7 @@ script = ExtResource( 7 )
 environment = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -0.275939, -0.516057, 0.81089, 0, 0.843644, 0.536903, -0.961175, 0.148152, -0.232794, 0.714926, 12.7868, 1.2436 )
+transform = Transform( -0.275939, -0.516057, 0.81089, 0, 0.843644, 0.536902, -0.961175, 0.148152, -0.232794, 0.714926, 12.7868, 1.2436 )
 light_energy = 0.57
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -229,9 +229,9 @@ __meta__ = {
 
 [node name="Start" type="Control" parent="UI"]
 margin_left = 176.0
-margin_top = 848.0
+margin_top = 856.0
 margin_right = 464.0
-margin_bottom = 912.0
+margin_bottom = 920.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -258,9 +258,9 @@ texture = ExtResource( 13 )
 
 [node name="ScanButton" parent="UI/Scan" instance=ExtResource( 10 )]
 margin_left = 208.0
-margin_top = 832.0
+margin_top = 824.0
 margin_right = 392.0
-margin_bottom = 856.0
+margin_bottom = 848.0
 text = "Scan"
 
 [node name="Content" type="Control" parent="UI"]
@@ -1696,16 +1696,20 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -8.0
-color = Color( 0.0862745, 0.0862745, 0.0862745, 0.92549 )
+margin_bottom = -6.0
+color = Color( 0.0156863, 0.113725, 0.0431373, 0.890196 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="InstituteCountLabel" type="Label" parent="UI/Progress/ColorRect"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -136.0
+margin_left = -72.0
 margin_top = -8.0
-margin_right = -36.0
+margin_right = 28.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0.870588, 0.933333, 0.305882, 1 )
@@ -1719,9 +1723,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 16.0
+margin_left = 80.0
 margin_top = -8.0
-margin_right = 116.0
+margin_right = 180.0
 margin_bottom = 35.0
 custom_fonts/font = ExtResource( 22 )
 custom_colors/font_color = Color( 0.870588, 0.933333, 0.305882, 1 )
@@ -1736,9 +1740,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
+margin_left = -32.0
 margin_top = -8.0
-margin_right = 4.0
+margin_right = 68.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
 text = "Netzwerk"
@@ -1748,9 +1752,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 56.0
+margin_left = 120.0
 margin_top = -8.0
-margin_right = 156.0
+margin_right = 220.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
 text = "Werkstatt"
@@ -1760,18 +1764,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -256.0
+margin_left = -216.0
 margin_top = -8.0
-margin_right = -156.0
+margin_right = -113.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 22 )
-text = "Gefunden: "
+text = "[ Gefunden ]"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Ship" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 5.00492, -0.00134277, 15.3711 )
+transform = Transform( 0.362657, 0, 0.344209, 0, 0.5, 0, -0.344209, 0, 0.362657, 15.1752, -0.00134277, 11.4431 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.819402, 0.573219, 0, -0.573219, 0.819402, 0, 9.86349, 9.49971 )
@@ -1786,7 +1790,7 @@ shape = SubResource( 4 )
 [node name="Targets" type="Spatial" parent="."]
 
 [node name="SAW" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, 21.4079, 0, -36.9319 )
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, 21.2702, 0, -36.9319 )
 logo = ExtResource( 12 )
 content_node = NodePath("../../UI/Content/SAW")
 mesh = SubResource( 6 )
@@ -1798,13 +1802,13 @@ content_node = NodePath("../../UI/Content/ISGV")
 mesh = SubResource( 8 )
 
 [node name="DI" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.933361, -0.199792, 0.298193, -0.00703091, 0.820431, 0.571702, -0.358869, -0.535701, 0.764354, 29.5571, 0, 41.1826 )
+transform = Transform( 0.933361, -0.199792, 0.298193, -0.00703091, 0.820431, 0.571702, -0.358869, -0.535701, 0.764354, 19.8185, 0, 41.1826 )
 logo = ExtResource( 15 )
 content_node = NodePath("../../UI/Content/DI")
 mesh = SubResource( 10 )
 
 [node name="HAIT" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -9.80587, 0, 35.2199 )
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -9.94353, 0, 34.5315 )
 logo = ExtResource( 18 )
 content_node = NodePath("../../UI/Content/HAIT")
 mesh = SubResource( 12 )
@@ -1816,7 +1820,7 @@ content_node = NodePath("../../UI/Content/SI")
 mesh = SubResource( 14 )
 
 [node name="GWZO" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -10.1939, 0, -41.9802 )
+transform = Transform( 0.931615, -0.207783, 0.298194, 0, 0.820461, 0.571702, -0.363446, -0.532606, 0.764354, -10.1939, 0, -41.8425 )
 logo = ExtResource( 17 )
 content_node = NodePath("../../UI/Content/GWZO")
 mesh = SubResource( 16 )
@@ -1833,18 +1837,18 @@ rotate_axis = "z"
 mesh_scale = 0.25
 
 [node name="Infoportal" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.312239, -0.695764, 0.646853, 0.154949, 0.709076, 0.687897, -0.937282, -0.114559, 0.329209, 10.5623, 0, -14.7282 )
+transform = Transform( 0.3545, -0.689841, 0.631228, 0.154949, 0.709076, 0.687897, -0.922128, -0.146051, 0.358257, 6.31292, 0, -18.6235 )
 logo = ExtResource( 36 )
 content_node = NodePath("../../UI/Content/Infoportal")
 in_network = false
 mesh = ExtResource( 24 )
 material = ExtResource( 25 )
-rotate_axis = "x"
+rotate_axis = "z"
 mesh_scale = 0.2
 is_kowed = true
 
 [node name="KOWED" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00837, 3.8147e-06, -0.209667 )
+transform = Transform( 0.756619, 0, 0.653857, 0, 1, 0, -0.653857, 0, 0.756619, 5.00835, 3.8147e-06, 0.0852225 )
 logo = ExtResource( 28 )
 content_node = NodePath("../../UI/Content/KOWED")
 in_network = false
@@ -1856,7 +1860,7 @@ mesh_scale = 0.25
 is_kowed = true
 
 [node name="Peter" parent="Targets" instance=ExtResource( 3 )]
-transform = Transform( 0.869521, 0, -0.493896, -0.0750138, -0.988399, -0.132064, -0.488167, 0.151882, -0.859433, 25.6093, 0, 25.1694 )
+transform = Transform( 0.869521, 0, -0.493896, -0.0750138, -0.988399, -0.132064, -0.488167, 0.151882, -0.859433, 22.1889, 0, 20.6088 )
 logo = ExtResource( 33 )
 content_node = NodePath("../../UI/Content/Peter")
 in_network = false
