@@ -470,7 +470,7 @@ __meta__ = {
 margin_right = 464.0
 margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
-text = "Abhaltung eines Workshops zum Thema Social Media und Digitales Publishing für die Doktorand*Innen des Institutes"
+text = "Abhaltung eines Workshops zum Thema Social Media, Bloggen und Open-Access-Publizieren für die Doktorand*Innen des Institutes."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -599,6 +599,9 @@ __meta__ = {
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="UI/Content/SI"]
 anchor_right = 1.0
@@ -615,7 +618,7 @@ margin_top = 80.0
 margin_right = 584.0
 margin_bottom = 159.0
 custom_fonts/font = ExtResource( 8 )
-text = "Sorbische Institut / Serbski institut (SI)"
+text = "Sorbisches Institut / Serbski institut (SI)"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -668,7 +671,7 @@ __meta__ = {
 margin_right = 480.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 8 )
-text = "Open Access Strategie"
+text = "Open-Access-Strategie"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -687,14 +690,13 @@ __meta__ = {
 margin_right = 480.0
 margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das SI strebt eine verbesserte Bereitstellung seiner Forschungsdaten an und wird dabei vom Kompetenzwerk beraten"
+text = "Das SI strebt eine verbesserte Bereitstellung seiner Forschungsdaten an und wird dabei vom Kompetenzwerk beraten."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SAW" type="Control" parent="UI/Content"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -832,7 +834,7 @@ __meta__ = {
 margin_right = 456.0
 margin_bottom = 69.0
 custom_fonts/font = ExtResource( 9 )
-text = "Beteiligung an der Planung eines Systems zur Erfassung von Wörterbucheinträgen mit Schwerpunkt auf Nachträge."
+text = "Beteiligung an der Planung eines Systems zur Erfassung von Wörterbucheinträgen mit Schwerpunkt auf Nachträgen."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
