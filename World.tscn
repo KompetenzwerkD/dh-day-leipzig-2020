@@ -212,15 +212,16 @@ color = Color( 0.156863, 0.156863, 0.156863, 0.898039 )
 
 [node name="SubtitleLabel2" type="Label" parent="UI/About/ColorRect"]
 anchor_bottom = 0.25
-margin_left = 56.0
-margin_top = 88.0
-margin_right = 591.0
-margin_bottom = 260.0
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 599.0
+margin_bottom = 220.0
 custom_fonts/font = ExtResource( 9 )
 text = "Interaktives Poster
 Entdecke die Aktivitäten des Netzwerkes und der Werkstatt im Rahmen der außeruniversitären geisteswissenschaftlichen Forschungseinrichtungen Sachsens.
 
-Steuerung: Klicke um das Raumschiff in Richtung des Mousepointers to navigieren."
+Steuerung
+Klicke und halte die Maustaste gedrückt, um das Raumschiff in die jeweilige Richtung  to navigieren. "
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -265,8 +266,8 @@ text = "Scan"
 [node name="Content" type="Control" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 24.0
-margin_bottom = -128.0
+margin_top = 16.0
+margin_bottom = -136.0
 script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -304,14 +305,6 @@ margin_top = 166.0
 margin_right = 224.0
 margin_bottom = 206.0
 label = "website"
-
-[node name="URLButton3" parent="UI/Content/GWZO/ColorRect" instance=ExtResource( 20 )]
-margin_left = 248.0
-margin_top = 536.0
-margin_right = 368.0
-margin_bottom = 576.0
-url = "https://www.epimeddat.org/"
-label = "prototyp"
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/GWZO/ColorRect"]
 margin_left = 48.0
@@ -376,6 +369,14 @@ autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="URLButton3" parent="UI/Content/GWZO" instance=ExtResource( 20 )]
+margin_left = 248.0
+margin_top = 536.0
+margin_right = 368.0
+margin_bottom = 576.0
+url = "https://www.epimeddat.org/"
+label = "prototyp"
 
 [node name="DI" type="Control" parent="UI/Content"]
 visible = false
@@ -1166,7 +1167,7 @@ __meta__ = {
 margin_right = 464.0
 margin_bottom = 21.0
 custom_fonts/font = ExtResource( 9 )
-text = "Gemeinsames Forschungsdatenmanagement; und i."
+text = "Gemeinsames Forschungsdatenmanagement"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
