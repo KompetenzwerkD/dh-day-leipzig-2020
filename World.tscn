@@ -364,7 +364,7 @@ __meta__ = {
 margin_right = 520.0
 margin_bottom = 117.0
 custom_fonts/font = ExtResource( 9 )
-text = "Open Data Sammlung für historische Epidemien und mittelalterliche Krankheiten.  Das Kompetenzwerk unterstützte bei der Antrangsstellung, dem Forschungsdatenmanagement und ist bei der Umsetzung mittels Semantic Mediawiki beteiligt."
+text = "Open Data Sammlung für historische Epidemien und mittelalterliche Krankheiten.  Das Kompetenzwerk unterstützte bei der Antragsstellung, dem Forschungsdatenmanagement und ist bei der Umsetzung mittels Semantic Mediawiki beteiligt."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -375,7 +375,7 @@ margin_left = 248.0
 margin_top = 536.0
 margin_right = 368.0
 margin_bottom = 576.0
-url = "https://www.epimeddat.org/"
+url = "http://www.epimeddat.org/"
 label = "prototyp"
 
 [node name="DI" type="Control" parent="UI/Content"]
@@ -697,6 +697,7 @@ __meta__ = {
 }
 
 [node name="SAW" type="Control" parent="UI/Content"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -872,7 +873,7 @@ margin_top = 248.0
 margin_right = 576.0
 margin_bottom = 365.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das KompetenzwerkD wurde 2020 gegründet und besteht aus einem Netzwerk von sechs außeruniversitären geisteswissenschaftlichen Forschungsinstiutionen in Sachsens und einer Werkstatt (siehe Team), angesiedelt an der Sächsischen Akademie der Wissenschaften zu Leipzig."
+text = "Das KompetenzwerkD wurde 2020 gegründet und besteht aus einem Netzwerk von sechs außeruniversitären geisteswissenschaftlichen Forschungsinstitutionen in Sachsen und einer Werkstatt (siehe Team), angesiedelt an der Sächsischen Akademie der Wissenschaften zu Leipzig."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1030,7 +1031,7 @@ margin_top = 264.0
 margin_right = 560.0
 margin_bottom = 344.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das ISGV hat den Auftrag, die sächsische Geschichte  in ihren historischen Räumen sowie ihren und die alltäglichen Lebenswelten  zu erforschen."
+text = "Das ISGV hat den Auftrag, die sächsische Geschichte in ihren historischen Räumen und alltäglichen Lebenswelten  zu erforschen."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1077,7 +1078,7 @@ __meta__ = {
 margin_right = 480.0
 margin_bottom = 93.0
 custom_fonts/font = ExtResource( 9 )
-text = "Bestand an Fotografien, Zeichnungen, Drucken etc. zu Sachsen, der laufend ausgebaut, digital erschlossen und der Öffentlichkeit im Internet zugänglich gemacht wird"
+text = "Bestand an Fotografien, Zeichnungen, Drucken etc. zu Sachsen, der laufend ausgebaut, digital erschlossen und der Öffentlichkeit im Internet zugänglich gemacht wird."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1088,7 +1089,7 @@ margin_top = 108.0
 margin_right = 480.0
 margin_bottom = 153.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das Komptenzwerk unterstützt beratend bei der Neuentwicklung des Bildarchivs (Datenmodell)"
+text = "Das Komptenzwerk unterstützt beratend bei der Neuentwicklung des Bildarchivs (Datenmodell)."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1178,9 +1179,9 @@ __meta__ = {
 [node name="EpimedDatDesc2" type="Label" parent="UI/Content/1989/ColorRect/VBoxContainer"]
 margin_top = 36.0
 margin_right = 464.0
-margin_bottom = 81.0
+margin_bottom = 105.0
 custom_fonts/font = ExtResource( 9 )
-text = "Entwickelung ein System zur zentralen Ressourcen- und Metadatenerfassung mittels Semantic Mediawik"
+text = "Entwickelung eines Systems zur zentralen Ressourcen- und Metadatenerfassung mittels Semantic Mediawik"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1347,7 +1348,7 @@ margin_left = 96.0
 margin_top = 136.0
 margin_right = 216.0
 margin_bottom = 176.0
-url = "https://multitrafo.hypotheses.org/"
+url = "https://franziska-naether.net"
 label = "website"
 
 [node name="URLButton3" parent="UI/Content/Franziska/ColorRect" instance=ExtResource( 20 )]
@@ -1599,7 +1600,7 @@ margin_left = 104.0
 margin_top = 136.0
 margin_right = 224.0
 margin_bottom = 176.0
-url = "https://multitrafo.hypotheses.org/"
+url = "https://github.com/missinglinks"
 label = "github"
 
 [node name="DescLabel" type="Label" parent="UI/Content/Peter/ColorRect"]
@@ -1608,7 +1609,7 @@ margin_top = 556.0
 margin_right = 576.0
 margin_bottom = 727.0
 custom_fonts/font = ExtResource( 9 )
-text = "Unser Ziel ist es nachhaltige Forschungssoftware zu fördern. Unter diesem Begriff fallen zahlreiche wichtige Aspekte: Wartbarkeit, Nachnutzbarkeit, Verfügbarkeit, aber auch ökologische Bedenken.
+text = "Unser Ziel ist es, nachhaltige Forschungssoftware zu fördern. Unter diesem Begriff fallen zahlreiche wichtige Aspekte: Wartbarkeit, Nachnutzbarkeit, Verfügbarkeit, aber auch ökologische Bedenken.
 "
 autowrap = true
 __meta__ = {
