@@ -438,10 +438,10 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/DI/ColorRect"]
-margin_left = 104.0
-margin_top = 508.098
-margin_right = 568.0
-margin_bottom = 671.098
+margin_left = 112.0
+margin_top = 528.0
+margin_right = 576.0
+margin_bottom = 691.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
@@ -731,10 +731,10 @@ url = "https://www.saw-leipzig.de"
 label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
-margin_left = 64.0
-margin_top = 288.0
-margin_right = 576.0
-margin_bottom = 368.0
+margin_left = 56.0
+margin_top = 296.0
+margin_right = 568.0
+margin_bottom = 376.0
 custom_fonts/font = ExtResource( 9 )
 text = "Die SAW betreibt zur Zeit über 20 Forschungsvorhaben im geisteswissenschaftlichen Bereich."
 autowrap = true
@@ -744,9 +744,9 @@ __meta__ = {
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/SAW/ColorRect"]
 margin_left = 56.0
-margin_top = 400.0
+margin_top = 392.0
 margin_right = 576.0
-margin_bottom = 440.0
+margin_bottom = 432.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
 text = "Kooperation mit dem KompetenzwerkD"
@@ -1006,9 +1006,9 @@ __meta__ = {
 
 [node name="ProjectsLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
 margin_left = 56.0
-margin_top = 415.0
+margin_top = 456.0
 margin_right = 576.0
-margin_bottom = 455.0
+margin_bottom = 496.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.788235, 0.8, 0.34902, 1 )
 text = "Kooperation mit dem KompetenzwerkD"
@@ -1026,12 +1026,12 @@ url = "https://www.isgv.de/"
 label = "website"
 
 [node name="DescLabel" type="Label" parent="UI/Content/ISGV/ColorRect"]
-margin_left = 64.0
-margin_top = 264.0
-margin_right = 560.0
-margin_bottom = 344.0
+margin_left = 56.0
+margin_top = 256.0
+margin_right = 552.0
+margin_bottom = 397.0
 custom_fonts/font = ExtResource( 9 )
-text = "Das ISGV hat den Auftrag, die sächsische Geschichte in ihren historischen Räumen und alltäglichen Lebenswelten  zu erforschen."
+text = "Das ISGV hat den  Auftrag, die sächsische Geschichte in ihren historischen Räumen sowie in kulturwissenschaftlicher Perspektive die alltäglichen Lebenswelten jeweils bis zur Gegenwart zu erforschen und die Erschließung und Dokumentation der einschlägigen Quellen voranzutreiben."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1039,9 +1039,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Content/ISGV/ColorRect"]
 margin_left = 104.0
-margin_top = 468.0
+margin_top = 508.0
 margin_right = 584.0
-margin_bottom = 732.0
+margin_bottom = 772.0
 custom_constants/separation = 15
 __meta__ = {
 "_edit_use_anchors_": false
